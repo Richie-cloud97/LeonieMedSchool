@@ -53,25 +53,19 @@ function displayTasks(){
         const li = document.createElement("li");
 
 
-        li.innerHTML = `
+li.innerHTML = `
+    <span class="${task.completed ? "completed" : ""}">
+        ${task.text}
+    </span>
 
-            <span class="${task.completed ? "completed" : ""}">
-                ${task.text}
-            </span>
+    <button onclick="completeTask(${index})">
+        ✅ Complete
+    </button>
 
-            <div>
-
-                <button onclick="completeTask(${index})">
-                    ✅
-                </button>
-
-                <button onclick="deleteTask(${index})">
-                    🗑️
-                </button>
-
-            </div>
-
-        `;
+    <button onclick="deleteTask(${index})">
+        🗑️ Delete
+    </button>
+`;
 
 
         taskList.appendChild(li);
