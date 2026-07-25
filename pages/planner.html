@@ -22,16 +22,46 @@
     <h2>Today's Study Plan</h2>
 
     <div class="task-input">
-        <input 
-            id="taskInput" 
-            type="text" 
-            placeholder="Add a study task..."
-        >
+<div class="planner-controls">
 
-        <button onclick="addTask()">
-            Add
-        </button>
-    </div>
+    <select id="daySelect">
+
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+        <option>Saturday</option>
+        <option>Sunday</option>
+
+    </select>
+
+
+    <select id="subjectSelect">
+
+        <option>Anatomy</option>
+        <option>Physiology</option>
+        <option>Pharmacology</option>
+        <option>Pathology</option>
+        <option>Microbiology</option>
+        <option>Neurology</option>
+        <option>Clinical Medicine</option>
+
+    </select>
+
+
+    <input 
+        id="taskInput"
+        type="text"
+        placeholder="Add a study task..."
+    >
+
+
+    <button onclick="addTask()">
+        Add
+    </button>
+
+</div>
 
 
     <div id="taskList"></div>
