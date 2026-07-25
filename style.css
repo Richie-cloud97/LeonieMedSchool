@@ -386,3 +386,47 @@ footer{
     }
 
 }
+
+.planner-controls{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+
+    margin-bottom:25px;
+
+}
+
+
+.planner-controls input,
+.planner-controls select{
+
+    padding:14px;
+
+    border-radius:12px;
+
+    border:1px solid #CBD5E1;
+
+    font-size:16px;
+
+}
+
+
+.planner-controls button{
+
+    grid-column:1 / -1;
+
+}
+
+
+@media(max-width:600px){
+
+    .planner-controls{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
