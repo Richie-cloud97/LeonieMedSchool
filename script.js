@@ -1,6 +1,24 @@
+// -----------------------------
+// Dark Mode
+// -----------------------------
+
 const button = document.getElementById("themeToggle");
 
-button.addEventListener("click", () => {
+if (button) {
+
+    button.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark");
+
+        if (document.body.classList.contains("dark")) {
+            button.textContent = "☀️";
+        } else {
+            button.textContent = "🌙";
+        }
+
+    });
+
+}
     document.body.classList.toggle("dark");
 
     if(document.body.classList.contains("dark")){
