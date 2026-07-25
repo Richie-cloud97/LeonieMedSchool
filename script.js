@@ -54,17 +54,25 @@ function displayTasks(){
 
 
 li.innerHTML = `
+
     <span class="${task.completed ? "completed" : ""}">
         ${task.text}
     </span>
 
-    <button onclick="completeTask(${index})">
-        ✅ Complete
-    </button>
 
-    <button onclick="deleteTask(${index})">
-        🗑️ Delete
-    </button>
+    <div>
+
+        <button onclick="completeTask(${index})">
+            ${task.completed ? "↩️ Undo" : "✅ Done"}
+        </button>
+
+
+        <button onclick="deleteTask(${index})">
+            🗑️ Delete
+        </button>
+
+    </div>
+
 `;
 
 
