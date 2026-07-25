@@ -120,3 +120,134 @@ footer{
 .dark .quote{
     color:#CBD5E1;
 }
+
+/* Planner */
+
+.planner-card{
+
+    background:white;
+
+    width:90%;
+
+    max-width:700px;
+
+    margin:40px auto;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+
+.task-input{
+
+    display:flex;
+
+    gap:10px;
+
+    margin:25px 0;
+
+}
+
+
+.task-input input{
+
+    flex:1;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    border:1px solid #CBD5E1;
+
+    font-size:16px;
+
+}
+
+
+.task-input button{
+
+    background:#2563EB;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+
+#taskList{
+
+    list-style:none;
+
+}
+
+
+#taskList li{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#F8FAFC;
+
+    padding:15px;
+
+    margin:10px 0;
+
+    border-radius:12px;
+
+}
+
+
+#taskList button{
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+
+.completed{
+
+    text-decoration:line-through;
+
+    opacity:.5;
+
+}
+
+
+.motivation{
+
+    text-align:center;
+
+    padding:20px;
+
+    color:#475569;
+
+}
+
+
+.home-button{
+
+    color:white;
+
+    text-decoration:none;
+
+}
