@@ -169,3 +169,59 @@ window.deleteTask = deleteTask;
 
 
 displayTasks();
+function updateProgress(){
+
+    const progressText =
+        document.getElementById("progressText");
+
+    const progressFill =
+        document.getElementById("progressFill");
+
+
+    if(!progressText || !progressFill){
+        return;
+    }
+
+
+    const total = tasks.length;
+
+
+    const completed = tasks.filter(function(task){
+
+        return task.completed;
+
+    }).length;
+
+
+    let percentage = 0;
+
+
+    if(total > 0){
+
+        percentage = Math.round(
+            (completed / total) * 100
+        );
+
+    }
+
+
+    progressText.innerHTML = `
+
+        Completed:
+        <strong>${completed}</strong>
+        /
+        <strong>${total}</strong>
+        tasks
+
+        <br>
+
+        Progress:
+        <strong>${percentage}%</strong>
+
+    `;
+
+
+    progressFill.style.width =
+        percentage + "%";
+
+}
