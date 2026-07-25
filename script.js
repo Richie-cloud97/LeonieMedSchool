@@ -1,3 +1,6 @@
+console.log("Leonie planner script loaded");
+
+
 // -----------------------------
 // Dark Mode
 // -----------------------------
@@ -19,14 +22,7 @@ if (button) {
     });
 
 }
-    document.body.classList.toggle("dark");
 
-    if(document.body.classList.contains("dark")){
-        button.textContent = "☀️";
-    }else{
-        button.textContent = "🌙";
-    }
-});
 
 // -----------------------------
 // Study Planner
@@ -35,30 +31,35 @@ if (button) {
 let tasks = JSON.parse(localStorage.getItem("leonieTasks")) || [];
 
 
-function saveTasks(){
+function saveTasks() {
+
     localStorage.setItem(
         "leonieTasks",
         JSON.stringify(tasks)
     );
+
 }
 
 
-function displayTasks(){
+function displayTasks() {
 
     const taskList = document.getElementById("taskList");
 
-    if(!taskList) return;
+    if (!taskList) {
+        return;
+    }
 
 
     taskList.innerHTML = "";
 
 
-    tasks.forEach((task,index)=>{
+    tasks.forEach((task, index) => {
 
         const li = document.createElement("li");
 
+
         li.innerHTML = `
-            <span class="${task.completed ? 'completed' : ''}">
+            <span class="${task.completed ? "completed" : ""}">
                 ${task.text}
             </span>
 
@@ -82,23 +83,26 @@ function displayTasks(){
 
 
 
-function addTask(){
+function addTask() {
 
     const input = document.getElementById("taskInput");
 
-    if(!input.value.trim()) return;
+
+    if (!input.value.trim()) {
+        return;
+    }
 
 
     tasks.push({
 
         text: input.value,
 
-        completed:false
+        completed: false
 
     });
 
 
-    input.value="";
+    input.value = "";
 
     saveTasks();
 
@@ -108,7 +112,7 @@ function addTask(){
 
 
 
-function completeTask(index){
+function completeTask(index) {
 
     tasks[index].completed = !tasks[index].completed;
 
@@ -120,9 +124,9 @@ function completeTask(index){
 
 
 
-function deleteTask(index){
+function deleteTask(index) {
 
-    tasks.splice(index,1);
+    tasks.splice(index, 1);
 
     saveTasks();
 
@@ -131,9 +135,11 @@ function deleteTask(index){
 }
 
 
-
-displayTasks();
+// Make buttons work from HTML
 
 window.addTask = addTask;
 window.completeTask = completeTask;
 window.deleteTask = deleteTask;
+
+
+displayTasks();
