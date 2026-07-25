@@ -430,3 +430,18 @@ footer{
     }
 
 }
+
+#taskList small{
+
+    color:#64748B;
+
+    font-size:13px;
+
+}
+
+
+#taskList strong{
+
+    font-size:17px;
+
+}
