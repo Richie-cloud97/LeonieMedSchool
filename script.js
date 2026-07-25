@@ -133,3 +133,7 @@ function deleteTask(index){
 
 
 displayTasks();
+
+window.addTask = addTask;
+window.completeTask = completeTask;
+window.deleteTask = deleteTask;
