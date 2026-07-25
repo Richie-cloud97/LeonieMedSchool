@@ -1,43 +1,43 @@
-console.log("Leonie planner script loaded");
+console.log("Leonie script loaded");
 
 
-// -----------------------------
-// Dark Mode
-// -----------------------------
-
+// Dark mode
 const button = document.getElementById("themeToggle");
 
 if (button) {
-
-    button.addEventListener("click", () => {
+    button.addEventListener("click", function () {
 
         document.body.classList.toggle("dark");
 
-        if (document.body.classList.contains("dark")) {
-            button.textContent = "☀️";
-        } else {
-            button.textContent = "🌙";
-        }
-
     });
-
 }
 
 
-// -----------------------------
-// Study Planner
-// -----------------------------
-
+// Planner
 let tasks = JSON.parse(localStorage.getItem("leonieTasks")) || [];
 
 
-function saveTasks() {
+function addTask() {
+
+    const input = document.getElementById("taskInput");
+
+    if (!input.value.trim()) {
+        return;
+    }
+
+    tasks.push({
+        text: input.value,
+        completed: false
+    });
 
     localStorage.setItem(
         "leonieTasks",
         JSON.stringify(tasks)
     );
 
+    input.value = "";
+
+    displayTasks();
 }
 
 
@@ -49,96 +49,36 @@ function displayTasks() {
         return;
     }
 
-
     taskList.innerHTML = "";
 
-
-    tasks.forEach((task, index) => {
+    tasks.forEach(function(task, index) {
 
         const li = document.createElement("li");
 
-
-        li.innerHTML = `
-            <span class="${task.completed ? "completed" : ""}">
-                ${task.text}
-            </span>
-
-            <div>
-                <button onclick="completeTask(${index})">
-                    ✅
-                </button>
-
-                <button onclick="deleteTask(${index})">
-                    🗑️
-                </button>
-            </div>
-        `;
-
+        li.innerHTML =
+            task.text +
+            " <button onclick='deleteTask(" + index + ")'>🗑️</button>";
 
         taskList.appendChild(li);
 
     });
-
 }
-
-
-
-function addTask() {
-
-    const input = document.getElementById("taskInput");
-
-
-    if (!input.value.trim()) {
-        return;
-    }
-
-
-    tasks.push({
-
-        text: input.value,
-
-        completed: false
-
-    });
-
-
-    input.value = "";
-
-    saveTasks();
-
-    displayTasks();
-
-}
-
-
-
-function completeTask(index) {
-
-    tasks[index].completed = !tasks[index].completed;
-
-    saveTasks();
-
-    displayTasks();
-
-}
-
 
 
 function deleteTask(index) {
 
     tasks.splice(index, 1);
 
-    saveTasks();
+    localStorage.setItem(
+        "leonieTasks",
+        JSON.stringify(tasks)
+    );
 
     displayTasks();
-
 }
 
 
-// Make buttons work from HTML
-
 window.addTask = addTask;
-window.completeTask = completeTask;
 window.deleteTask = deleteTask;
 
 
