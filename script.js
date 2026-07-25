@@ -55,9 +55,17 @@ function displayTasks(){
 
 li.innerHTML = `
 
-    <span class="${task.completed ? "completed" : ""}">
-        ${task.text}
-    </span>
+<span class="${task.completed ? "completed" : ""}">
+
+    <strong>${task.text}</strong>
+
+    <br>
+
+    <small>
+        ${task.subject || "General"} • ${task.day || ""}
+    </small>
+
+</span>
 
 
     <div>
@@ -88,6 +96,10 @@ function addTask(){
 
     const input = document.getElementById("taskInput");
 
+    const subject = document.getElementById("subjectSelect");
+
+    const day = document.getElementById("daySelect");
+
 
     if (!input.value.trim()){
         return;
@@ -97,6 +109,10 @@ function addTask(){
     tasks.push({
 
         text: input.value,
+
+        subject: subject.value,
+
+        day: day.value,
 
         completed:false
 
