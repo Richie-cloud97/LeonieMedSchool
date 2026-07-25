@@ -1,1 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner | Leonie's Medical School Companion</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
 
+<body>
+
+<header>
+    <h1>📅 Study Planner</h1>
+    <a href="../index.html" class="home-button">🏠 Home</a>
+</header>
+
+
+<main>
+
+<section class="planner-card">
+
+    <h2>Today's Study Plan</h2>
+
+    <div class="task-input">
+        <input 
+            id="taskInput" 
+            type="text" 
+            placeholder="Add a study task..."
+        >
+
+        <button onclick="addTask()">
+            Add
+        </button>
+    </div>
+
+
+    <ul id="taskList"></ul>
+
+</section>
+
+
+<section class="motivation">
+    <h3>❤️ Leonie's Reminder</h3>
+    <p>
+        Every lecture completed brings you one step closer to becoming an amazing doctor.
+    </p>
+</section>
+
+
+</main>
+
+
+<script src="../script.js"></script>
+
+</body>
+</html>
